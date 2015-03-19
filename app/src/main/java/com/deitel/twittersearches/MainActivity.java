@@ -120,6 +120,9 @@ public class MainActivity extends ListActivity
       if (!tags.contains(tag))
       {
          tags.add(tag); // add new tag
+//         String urls = getString(R.string.searchURL) + Uri.encode(savedSearches.getString(tag,""),
+//                 "UTF-8");
+//          tags.add(urls);
          Collections.sort(tags, String.CASE_INSENSITIVE_ORDER);
          adapter.notifyDataSetChanged(); // rebind tags to ListView
       }
@@ -214,8 +217,9 @@ public class MainActivity extends ListActivity
    private void shareSearch(String tag)
    {
       // create the URL representing the search
-      String urlString = getString(R.string.searchURL) +
-         Uri.encode(savedSearches.getString(tag, ""), "UTF-8");
+
+       String urlString = getString(R.string.searchURL) +
+               Uri.encode(savedSearches.getString(tag, ""), "UTF-8");
 
       // create Intent to share urlString
       Intent shareIntent = new Intent();
